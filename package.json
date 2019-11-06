@@ -1,0 +1,25 @@
+{
+  "name": "ijazah-issuer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "multer": "^1.4.1",
+    "pug": "^2.0.3",
+    "shelljs": "^0.8.3",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^11.11.3",
+    "nodemon": "^1.18.10"
+  }
+}

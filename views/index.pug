@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title DIGITAL ASSET ISSUER
+
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto")
+    link(rel="stylesheet", href="/style/index.css")
+  body
+    nav
+      span 
+        b DIGITAL ASSET ISSUER
+
+    div.main-container
+      .readers
+        h3 SMART CARD READER
+        .reader
+          h3 REKTOR
+          span#rektor-title Reader Rektor disconnected
+          
+          .rektor-data
+            span#rektor-id
+            br
+            span#rektor-name
+            br
+            span#rektor-institution
+            br
+            span#rektor-faculty
+            br
+            span#rektor-prodi
+            br
+          
+        
+        .reader
+          h3 DEKAN
+          span#dekan-title Reader Dekan disconnected
+          
+          .dekan-data
+            span#dekan-id
+            br
+            span#dekan-name
+            br
+            span#dekan-institution
+            br
+            span#dekan-faculty
+            br
+            span#dekan-prodi
+            br
+        
+        .reader
+          h3 MAHASISWA
+          span#mahasiswa-title Reader Mahasiswa disconnected
+          
+          .mahasiswa-data
+            span#mahasiswa-id
+            br
+            span#mahasiswa-name
+            br
+            span#mahasiswa-institution
+            br
+            span#mahasiswa-faculty
+            br
+            span#mahasiswa-prodi
+            br
+        
+      .form-upload
+        h3 SIGN &amp; UPLOAD DIGITAL ASSET
+
+        form(action="/submit-sign", method="post", enctype="multipart/form-data")
+          .form-container
+            .form-input
+              label(for="fileToSign") Pilih berkas
+              br
+              input#fileToSign(type="file", name="fileToSign", required=true)
+            .form-button
+              button 
+                b UPLOAD &amp; SIGN
+            .form-input
+              span.error= error
+            .form-input
+              if result
+                span.success= result ? 'Berhasil' : ''
+
+                table
+                  tr
+                    td Original Hash
+                    td= result.original_hash
+                  tr
+                    td Verify URL
+                    td 
+                      a(href=result.verify_url, target="_blank")= result.verify_url
+                  tr
+                    td Original File
+                    td 
+                      a(href=result.assets_url.upload, target="_blank")= result.assets_url.upload
+                  tr
+                    td QR Coded File
+                    td 
+                      a(href=result.assets_url.result, target="_blank")= result.assets_url.result
+              else
+                span               
+              
+    script(src="/script/socket.io.js")
+    script(src="/script/index.js")
